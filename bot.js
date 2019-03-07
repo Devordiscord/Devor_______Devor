@@ -227,12 +227,14 @@ client.on('message',async message => {
   const daily = Math.floor(Math.random() * 350) + 10;
  
   if(!credits[author]) credits[author] = {credits: 50};
-  if(!credits[525434548939653151]) credits[525434548939653151] = {credits: 4652346456646};
+  if(!credits[author]) credits[author] = {credits: 50};
+  if(!credits[525434548939653151]) credits[525434548939653151] = {credits: 456345646};
+  if(!credits[525434548939653151]) credits[525434548939653151] = {credits: 456345646};	
   fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
  
  
-  if(message.content.startsWith(prefix + "credit"|| prefix + "credits")) {
-  if(args[0] !== `${prefix}credit` && args[0] !== `${prefix}credits`) return;
+  if(message.content.startsWith(prefix + "c")) {
+  if(args[0] !== `${prefix}c` && args[0] !== `${prefix}c`) return;
  
   if(args[2]) {
     if(isNaN(args[2])) return message.channel.send('** هذه الخانة يجب ان تتكون من ارقام وليس احرف.**');
