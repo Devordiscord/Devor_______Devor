@@ -1907,22 +1907,27 @@ client.on('message', message => {
             var Canvas = module.require('canvas');
             var jimp = module.require('jimp');
     
-     const w = ['./lorans.png'];
+     const w = ['./lorans.png']; 
+
+	    let Image = Canvas.Image,
+                 canvas = new Canvas(300, 300),
+                 ctx = canvas.getContext('2d');
+             ctx.patternQuality = 'bilinear';
+             ctx.filter = 'bilinear';
+             ctx.antialias = 'subpixel';
+             ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+             ctx.shadowOffsetY = 2;
+             ctx.shadowBlur = 2;
+             fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+                 if (err) return console.log(err);
+                 let BG = Canvas.Image;
+                 let ground = new Image;
+                 ground.src = Background;
+                 ctx.drawImage(ground, 0, 0, 300, 305);
+		     
+
     
-    let Image = Canvas.Image,
-    canvas = Canvas.createCanvas(300, 300),
-    ctx = canvas.getContext('2d');
-  if (err) return console.log(err);
-  let BG = Canvas.Image;
-  let ground = new Image;
-  ground.src = Background;
-  ctx.drawImage(ground, 0, 0, 297, 305);
-  if (err) return console.log(err);
-  let BG = Canvas.Image;
-  let ground = new Image;
-  ground.src = Background;
-  ctx.drawImage(ground, 0, 0, 300, 305);
-});
+     })
 
 
 let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
