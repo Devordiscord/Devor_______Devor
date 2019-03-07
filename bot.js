@@ -1941,120 +1941,107 @@ client.on('message', message => {
     
      const w = ['./Super.png'];
     
-             let Image = Canvas.Image,
-                 canvas = new Canvas(802, 404),
-                 ctx = canvas.getContext('2d');
-             ctx.patternQuality = 'bilinear';
-             ctx.filter = 'bilinear';
-             ctx.antialias = 'subpixel';
-             ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-             ctx.shadowOffsetY = 2;
-             ctx.shadowBlur = 2;
-             fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-                 if (err) return console.log(err);
-                 let BG = Canvas.Image;
-                 let ground = new Image;
-                 ground.src = Background;
-                 ctx.drawImage(ground, 0, 0, 802, 404);
-    
-     })
 
-                                let user = message.mentions.users.first();
-          var men = message.mentions.users.first();
-             var heg;
-             if(men) {
-                 heg = men
-             } else {
-                 heg = message.author
-             }
-           var mentionned = message.mentions.members.first();
-              var h;
-             if(mentionned) {
-                 h = mentionned
-             } else {
-                 h = message.member
-             }
-             var ment = message.mentions.users.first();
-             var getvalueof;
-             if(ment) {
-               getvalueof = ment;
-             } else {
-               getvalueof = message.author;
-             }//ظ…ط§ ط®طµظƒ ,_,
-                                           let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
-                                             jimp.read(url, (err, ava) => {
-                                                 if (err) return console.log(err);
-                                                 ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                                                     if (err) return console.log(err);
-                            
-                       ctx.font = 'bold 16px kathen'; // حجم الخط و نوعه
-                        ctx.fontSize = '40px'; // عرض الخط
-                        ctx.fillStyle = "#000000"; // لون الخط
-                        ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`${getvalueof.username}`, 153, 173) // احداثيات اسمك
- 
-                        //ur name
-                        ctx.font = 'bold 16px kathen'; // حجم الخط و نوعه
-                        ctx.fontSize = '40px'; // عرض الخط
-                        ctx.fillStyle = "#f1f1f1"; // لون الخط
-                        ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`${getvalueof.username}`, 151, 171) // احداثيات اسمك
- 
-                        //credit
-                        ctx.font = "bold 12px kathen" // نوع الخط وحجمه
-                        ctx.fontSize = '10px'; // عرض الخط
-                        ctx.fillStyle = "#f1f1f1" // لون الخط
-                        ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`0`, 81, 159) // احداثيات المصاري
- 
-                        //poits
-                        ctx.font = "bold 12px kathen" // ن
-                        ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
-                        ctx.fillStyle = "#f1f1f1" // لون الخط
-                        ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`0`, 221, 159) // احداثيات النقاط
- 
-                        //Level
-                        ctx.font = "bold 27px kathen" // نوع الخط و حجمه
-                        ctx.fontSize = '10px'; // عرض الخط
-                        ctx.fillStyle = "#f1f1f1" // لون الخط
-                        ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`0`, 221, 118) // احداثيات اللفل
- 
-                         //info
-                        ctx.font = "bold 12px kathen" // ن
-                        ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
-                        ctx.fillStyle = "#000000" // لون الخط
-                        ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`0`, 150, 199) // احداثيات النقاط
- 
-                        //info
-                        ctx.font = "bold 12px kathen" // ن
-                        ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
-                        ctx.fillStyle = "#f1f1f1" // لون الخط
-                        ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`0`, 150, 197) // احداثيات النقاط
- 
-                        // REP
-                        ctx.font = "bold 26px  kathen";
-                        ctx.fontSize = "50px";
-                        ctx.fillStyle = "#f1f1f1";
-                        ctx.textAlign = "center";
-                        ctx.fillText(`0`, 80,117)
- 
-                        let Avatar = Canvas.Image;
-                        let ava = new Avatar;
- 
-ava.src = buf;
-                        ctx.beginPath();
-                        ctx.arc(75, 100, 780, 0, Math.PI*2, true);
-                        ctx.closePath();
-                        ctx.clip();
-                        ctx.drawImage(ava, 116, 82, 72, 72);
- 
-message.channel.startTyping()
-message.channel.sendFile(canvas.toBuffer())
-message.channel.stopTyping()
+      if (err) throw err
+      var img = new Image
+        		var url = message.author.avatarURL; //افتار صورتك
+		url = url.substring(0, url.indexOf('?'));
+
+		r1.get(url).then(res => {
+			var dataURL = res.body.toString('base64');
+			dataURL = 'data:image/png;base64,' + dataURL;
+			img.onload = function() {
+
+				ctx.save();
+    		ctx.beginPath();
+    		ctx.arc(54, 103, 47, 0, Math.PI * 2, true); // احدثيات الدائره
+		    ctx.closePath();
+		    ctx.clip();
+		    ctx.drawImage(img, 8, 57, 92, 92); // الصوره
+		    ctx.restore();
+			}
+			img.src = dataURL;
+		});
+		
+      img.onload = () => {
+        ctx.drawImage(img, 1, 1, 300, 300)
+     //   ctx.drawImage(message.author.avatarURL, 152, 27, 95, 95);
+        ctx.font = "regular 11px Cairo" // نوع الخط وحجمه
+        ctx.fillStyle = "#9f9f9f" // لون الخط
+        ctx.fillText(`${message.author.username}`, 140, 137)
+        ctx.fillText(`${mo}  `, 143, 219) //money
+        ctx.fillText(`${po}`, 120, 202) // النقاط
+
+        //Level
+        ctx.font = "regular 21px Cairo"
+        ctx.fillStyle = "#ffffff"
+        ctx.fillText(`${lev}`, 47, 255) //لفل
+
+        ctx.save()
+        
+      }
+      img.src = picture
+			
+    })
+		
+   
+
+    
+
+
+
+
+    function roundedImage(x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    function wrapText(context, text, x, y, maxWidth, lineHeight) {
+
+      var words = text.split(' '),
+        line = '',
+        lineCount = 0,
+        i,
+        test,
+        metrics;
+
+      for (i = 0; i < words.length; i++) {
+        test = words[i];
+        metrics = context.measureText(test);
+        while (metrics.width > maxWidth) {
+
+          test = test.substring(0, test.length - 1);
+          metrics = context.measureText(test);
+        }
+        if (words[i] != test) {
+          words.splice(i + 1, 0, words[i].substr(test.length))
+          words[i] = test;
+        }
+
+        test = line + words[i] + ' ';
+        metrics = context.measureText(test);
+
+        if (metrics.width > maxWidth && i > 0) {
+          context.fillText(line, x, y);
+          line = words[i] + ' ';
+          y += lineHeight;
+          lineCount++;
+        } else {
+          line = test;
+        }
+      }
+
+      ctx.fillText(line, x, y);
+    }
                             
                             
                           
