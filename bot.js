@@ -1977,7 +1977,7 @@ client.on('message', message => {
                getvalueof = ment;
              } else {
                getvalueof = message.author;
-             }//ظ…ط§ ط®طµظƒ ,_,
+             }
                                            let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
                                              jimp.read(url, (err, ava) => {
                                                  if (err) return console.log(err);
@@ -2002,42 +2002,42 @@ client.on('message', message => {
                         ctx.fontSize = '10px'; // عرض الخط
                         ctx.fillStyle = "#f1f1f1" // لون الخط
                         ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`$${profile[getvalueof.id].credits}`, 81, 159) // احداثيات المصاري
+                        ctx.fillText(`0`, 81, 159) // احداثيات المصاري
  
                         //poits
                         ctx.font = "bold 12px kathen" // ن
                         ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
                         ctx.fillStyle = "#f1f1f1" // لون الخط
                         ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`${profile[getvalueof.id].points}`, 221, 159) // احداثيات النقاط
+                        ctx.fillText(`0`, 221, 159) // احداثيات النقاط
  
                         //Level
                         ctx.font = "bold 27px kathen" // نوع الخط و حجمه
                         ctx.fontSize = '10px'; // عرض الخط
                         ctx.fillStyle = "#f1f1f1" // لون الخط
                         ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`${profile[getvalueof.id].level}`, 221, 118) // احداثيات اللفل
+                        ctx.fillText(`0`, 221, 118) // احداثيات اللفل
  
                          //info
                         ctx.font = "bold 12px kathen" // ن
                         ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
                         ctx.fillStyle = "#000000" // لون الخط
                         ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`${profile[getvalueof.id].tite}`, 150, 199) // احداثيات النقاط
+                        ctx.fillText(`0`, 150, 199) // احداثيات النقاط
  
                         //info
                         ctx.font = "bold 12px kathen" // ن
                         ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
                         ctx.fillStyle = "#f1f1f1" // لون الخط
                         ctx.textAlign = "center"; // محاذا ة النص
-                        ctx.fillText(`${profile[getvalueof.id].tite}`, 150, 197) // احداثيات النقاط
+                        ctx.fillText(`0`, 150, 197) // احداثيات النقاط
  
                         // REP
                         ctx.font = "bold 26px  kathen";
                         ctx.fontSize = "50px";
                         ctx.fillStyle = "#f1f1f1";
                         ctx.textAlign = "center";
-                        ctx.fillText(`+${profile[getvalueof.id].rep}`, 80,117)
+                        ctx.fillText(`0`, 80,117)
  
                         let Avatar = Canvas.Image;
                         let ava = new Avatar;
