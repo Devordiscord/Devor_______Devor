@@ -2003,8 +2003,8 @@ file: canvas.toBuffer()
                              })
                             
                              })
- }
- });	      
+ 
+ });
 	      
 
 
