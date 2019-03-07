@@ -93,13 +93,9 @@ client.on('message',async message => {
 });
  
 function err(message) {
-  let zg = client.guilds.get("525365808352985088").emojis.find(r => r.name === "NOO");
-  let zg2 = client.guilds.get("525365808352985088").emojis.find(r => r.name === "discordPartner");
-  let zg3 = client.guilds.get("525365808352985088").emojis.find(r => r.name === "Bdan");
-  let zg4 = client.guilds.get("525365808352985088").emojis.find(r => r.name === "tez");
   return message.channel.send(new RichEmbed()
-.setTitle(`${zg} | لقد قمت بكتابة شئ خاطئ`)
-.setDescription(`**${zg3} | لأنقاص عدد من النقاط : \`${prefix}points @Lorans -1\`\n${zg4} | لزيادة عدد من النقاط : \`${prefix}points @Lorans +1\`\n${zg2} | لتصفير جميع نقاط اعضاء السيرفر : \`${prefix}points reset\`**`));
+.setTitle(` لقد قمت بكتابة شئ خاطئ`)
+.setDescription(`** لأنقاص عدد من النقاط : \`${prefix}points @Lorans -1\`\n لزيادة عدد من النقاط : \`${prefix}points @Lorans +1\`\n لتصفير جميع نقاط اعضاء السيرفر : \`${prefix}points reset\`**`));
 }
 
 	      
