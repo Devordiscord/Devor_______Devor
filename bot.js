@@ -1998,18 +1998,15 @@ Jimp.read(url, (err, ava) => {
         ctx.textAlign = "left";
         ctx.fillText(`+${res.rep}`, 18,270)
 
-msg.channel.send("**:white_check_mark: `Show Profile` **" + `${msg.author}`, {
-file: canvas.toBuffer()
+
                              })
                             
                              })
  }
- };
-
-
-
 
 });
+
+
 	      
 
 
