@@ -4,16 +4,6 @@ const moment = require('moment');
 const request = require('request');
 const fs = require('fs');
 const Canvas = require("canvas");
-const { Client, RichEmbed } = require("discord.js");
-const yt_api_key = "AIzaSyDFRGtM6WzFmqAXIgQcCB1_Q8L0NJj7a3M"
-const ytdl = require("ytdl-core");
-const devs = ["525434548939653151"]
-const convert = require("hh-mm-ss")
-const fetchVideoInfo = require("youtube-info");
-const simpleytapi = require('simple-youtube-api')
-const youtube = new simpleytapi(yt_api_key);
-var guilds = {};
-const yt = "<:megYT:476798168684691457>"
 var prefix = "t!";
 
 
