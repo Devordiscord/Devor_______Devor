@@ -1900,6 +1900,8 @@ client.on('message', message => {
  }
  });
 
+
+
 client.on('message', message => {
     if(message.content == (prefix + 'profile')) {    
  
@@ -1907,9 +1909,9 @@ client.on('message', message => {
             var Canvas = module.require('canvas');
             var jimp = module.require('jimp');
     
-     const w = ['./lorans.png']; 
-
-	    let Image = Canvas.Image,
+     const w = ['./lorans.png'];
+    
+             let Image = Canvas.Image,
                  canvas = new Canvas(300, 300),
                  ctx = canvas.getContext('2d');
              ctx.patternQuality = 'bilinear';
@@ -1928,14 +1930,34 @@ client.on('message', message => {
 
     
      })
-
-
- let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
+                                let user = message.mentions.users.first();
+          var men = message.mentions.users.first();
+             var heg;
+             if(men) {
+                 heg = men
+             } else {
+                 heg = message.author
+             }
+           var mentionned = message.mentions.members.first();
+              var h;
+             if(mentionned) {
+                 h = mentionned
+             } else {
+                 h = message.member
+             }
+             var ment = message.mentions.users.first();
+             var getvalueof;
+             if(ment) {
+               getvalueof = ment;
+             } else {
+               getvalueof = message.author;
+             }//ظ…ط§ ط®طµظƒ ,_,
+                                           let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
                                              jimp.read(url, (err, ava) => {
                                                  if (err) return console.log(err);
                                                  ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
                                                      if (err) return console.log(err);
-
+                            
 
         //Avatar
        let Avatar = Canvas.Image;
@@ -1950,8 +1972,8 @@ client.on('message', message => {
         ctx.textAlign = "left"; // محاذا ة النص
         ctx.fillText(`${getvalueof.username}`, 100, 125) // احداثيات اسمك
 
-  //bord
-let leaderboard = await 
+         //bord
+         let leaderboard = await SQLite.all(`SELECT * FROM profileSystem ORDER BY xp DESC, credits DESC`);
         ctx.font = "regular 12px profile" // نوع الخط وحجمه
         ctx.fontSize = '50px'; // عرض الخط
         ctx.fillStyle = "#FFFFFF" // لون الخط
@@ -1997,16 +2019,15 @@ let leaderboard = await
         ctx.fillStyle = "#FFFFFF";
         ctx.textAlign = "left";
         ctx.fillText(`+${res.rep}`, 18,270)
-
-
+                            
+                            
+                          
+                            
                              })
                             
                              })
  }
-
-});
-
-
+ });
 	      
 
 
