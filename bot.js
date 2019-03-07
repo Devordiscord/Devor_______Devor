@@ -121,7 +121,7 @@ welcomer.sendFile(canvas.toBuffer())
 
 
 const adminprefix = "t!";
-const devs = ['525434548939653151','452802651814625280']; 
+const devs = ['525434548939653151']; 
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
@@ -171,101 +171,7 @@ if (message.content.startsWith(adminprefix + 'st')) {
 
 
 
-const cool = [];
-client.on('message',async message => {
-  if(message.author.bot) return;
-  if(message.channel.type === 'dm') return;
- 
-  const args = message.content.split(' ');
-  const credits = require('./credits.json');
-  const path = './credits.json';
-  const mention = message.mentions.users.first() || client.users.get(args[1]) || message.author;
-  const mentionn = message.mentions.users.first() || client.users.get(args[1]);
-  const author = message.author.id;
-  const balance = args[2];
-  const daily = Math.floor(Math.random() * 350) + 10;
- 
-  if(!credits[author]) credits[author] = {credits: 4652346456646};
-  if(!credits[525434548939653151]) credits[525434548939653151] = {credits: 4652346456646};
-  fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
- 
- 
-  if(message.content.startsWith(prefix + "L"|| prefix + "V")) {
-  if(args[0] !== `${prefix}credit` && args[0] !== `${prefix}credits`) return;
- 
-  if(args[2]) {
-    if(isNaN(args[2])) return message.channel.send('** هذه الخانة يجب ان تتكون من ارقام وليس احرف.**');
-    if(mention.bot) return message.channel.send(`** ${message.content.split(' ')[1]} لم يتم العثور على**`);
-    if(mention.id === message.author.id) return message.channel.send('** لا يمكنك تحويل كردت لنفسك**');
-    if(credits[author].credits < balance) return message.channel.send('** أنت لا تملك هذا القدر من الكردت**');
-    var one = Math.floor(Math.random() * 9) + 1;
-    var two = Math.floor(Math.random() * 9) + 1;
-    var three = Math.floor(Math.random() * 9) + 1;
-    var four = Math.floor(Math.random() * 9) + 1;
- 
-    var number = `${one}${two}${three}${four}`;
-   
-    message.channel.send(`** type these numbers to confirm : \`${number}\`**`).then(m => {
-      message.channel.awaitMessages(m => m.author.id === message.author.id, {max: 1, time: 10000}).then(c => {
-        if(c.first().content === number) {
-          m.delete();
-          message.channel.send(`**:moneybag: | ${message.author.username} , has transferrerd \`${balance}$\` to ${mention} **`);
-          credits[author].credits += (-balance);
-          credits[mention.id].credits += (+balance);
-          fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
-        } else if(c.first().content !== number) {
-          m.delete();
-          message.channel.send(`**${message.author.username} , The transmission has been canceled**`);
-        }
-      });
-    });
-  }
-  if(!args[2]) {
-    if(mention.bot) return message.channel.send(`** ${message.content.split(' ')[1]} لم يتم العثور على**`);
-    message.channel.send(`**${mention.username} , your :credit_card: balance is \` ${credits[mention.id].credits}$\`.**`);
-  }
- 
-  }
-  if(message.content.startsWith(prefix + "daily")) {
-    if(cool.includes(message.author.id)) return message.channel.send(`**لا يمكنك الحصول علي الكريديت الان**`);
-    if(mentionn) {
-      var one = Math.floor(Math.random() * 9) + 1;
-      var two = Math.floor(Math.random() * 9) + 1;
-      var three = Math.floor(Math.random() * 9) + 1;
-      var four = Math.floor(Math.random() * 9) + 1;
- 
-      var number = `${one}${two}${three}${four}`;
- 
-      message.channel.send(`**Write down this number for the transmission process : \`${number}\`**`).then(async m => {
-        message.channel.awaitMessages(msg => msg.author.id === message.author.id, {max: 1, time: 20000, errors: ['time']}).then(collected => {
-          if(collected.first().content === number) {
-            m.delete();
-            collected.first().delete();
-            credits[mentionn.id].credits += (+daily);
-            fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
- 
-          message.channel.send(`**${mention.username} you collect your \`${daily}\` :dollar: daily pounds**`);  
-          }
-          if(collected.first().content !== number) {
-            return m.delete();
-          }
-        });
-      });
-    } else if(!mentionn) {
-      credits[author].credits += (+daily);
-      fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
- 
-      message.channel.send(`**:atm:  |  ${mention.username} , you received your :yen: \`${daily}$\` daily credits!**`);
-    }
-    cool.unshift(message.author.id);
- 
-    setTimeout(() => {
-      cool.shift(message.author.id);
-      message.author.send("**:atm: | You can get free credits now , \`Daily\`**").catch();
-    }, ms("1d"));
 
-  }
-});
 
 //
 
@@ -873,7 +779,6 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.author.bot) return;
      if (message.content === prefix + "help") {
-     message.channel.send('```تم ارسال الاوامر في الخاص```');
  message.author.sendMessage(` \`\`\`    
                             ┎  Information About Bot  ┒
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -895,6 +800,7 @@ ${prefix}mute : لاعطاء العضو ميوت
 ${prefix}unmute : لفك الميوت عن العضو
 ${prefix}ban : لتبنيد العضو
 ${prefix}kick : لركل العضو من السيرفر
+
 الاوامر العامه
 ${prefix}roles : لعرض رتبه السيرفر
 ${prefix}user : لعرض معلومات الحساب
@@ -904,6 +810,7 @@ ${prefix}roll : لعمل قرعه
 ${prefix}credits : لمعرف الكريديت او ارساله
 ${prefix}daily : لتخد رتبك اليومي
 اوامر خاصه
+
 ${prefix}setMedia {Nema Chat} : لتحديد شات خاص بالصور
 ${prefix}toggleMedia : لتفعيل الخاصية لروم الصور واقفالها
 ${prefix}temp on : لتفعيل خاصيه الروم الصوتي المؤقت
@@ -913,6 +820,7 @@ ${prefix}antispread off : لاقفال خاصيه منع الروابط
 ${prefix}antibots on : لتفعيل خاصيه منع اي بوت من دخول السيرفر
 ${prefix}antibots off : لاقفال خاصيه من اي بوت من دخول السيرفر
 اخري
+
 ${prefix}invite : لدعوه البوت الي سيرفرك
 ${prefix}ping : لمعرفة سرعة استجابة البوت في الوقت الحالي
 ${prefix}support : سيرفر الدعم الفني
@@ -1928,7 +1836,171 @@ client.on('message', message => {
  }
  });
 
+
+      client.on('message', message => {
+          if(!profile[message.author.id]) profile[message.author.id] ={
+              points: 0,
+              level: 1
+          };
+          if(message.author.bot) return;
+          profile[message.author.id].points = Math.floor(profile[message.author.id].points+1);
+          if(profile[message.author.id].points > 100) {
+              profile[message.author.id].points = 0
+              profile[message.author.id].level = Math.floor(profile[message.author.id].level+1);
+              message.channel.send(`**${message.author.username}, You leveld up to __${profile[message.author.id].level}__**`)
+          }
+          fs.writeFile('profile.json', JSON.stringify(profile), (err) => {
+if (err) console.error(err);
+})
+      })
+ 
+client.on('message', message => {
+        let tit = message.content.split(" ").slice(1).join(" ");
+        if(message.content.startsWith(prefix + "title")) {
+        if(!profile[message.author.id].tite) profile[message.author.id].tite = "Hey im using Super"
+        if(!tit) {
+            message.channel.send("**Usage: ${prefix}title <something>**");
+        } else {
+            profile[message.author.id].tite = tit
+            message.channel.send(`:ok:`)
+        }
+        }
+        fs.writeFile('profile.json', JSON.stringify(profile), (err) => {
+if (err) console.error(err);
+})
+})
 	      
+client.on('message', message => {
+    if(message.content == (prefix + 'profile')) {    
+ 
+             if (message.channel.type === 'dm') return message.reply('This Command Is Not Avaible In Dm\'s');   
+            var Canvas = module.require('canvas');
+            var jimp = module.require('jimp');
+    
+     const w = ['./Super.png'];
+    
+             let Image = Canvas.Image,
+                 canvas = new Canvas(802, 404),
+                 ctx = canvas.getContext('2d');
+             ctx.patternQuality = 'bilinear';
+             ctx.filter = 'bilinear';
+             ctx.antialias = 'subpixel';
+             ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+             ctx.shadowOffsetY = 2;
+             ctx.shadowBlur = 2;
+             fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+                 if (err) return console.log(err);
+                 let BG = Canvas.Image;
+                 let ground = new Image;
+                 ground.src = Background;
+                 ctx.drawImage(ground, 0, 0, 802, 404);
+    
+     })
+                                let user = message.mentions.users.first();
+          var men = message.mentions.users.first();
+             var heg;
+             if(men) {
+                 heg = men
+             } else {
+                 heg = message.author
+             }
+           var mentionned = message.mentions.members.first();
+              var h;
+             if(mentionned) {
+                 h = mentionned
+             } else {
+                 h = message.member
+             }
+             var ment = message.mentions.users.first();
+             var getvalueof;
+             if(ment) {
+               getvalueof = ment;
+             } else {
+               getvalueof = message.author;
+             }//ظ…ط§ ط®طµظƒ ,_,
+                                           let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
+                                             jimp.read(url, (err, ava) => {
+                                                 if (err) return console.log(err);
+                                                 ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                                                     if (err) return console.log(err);
+                            
+                       ctx.font = 'bold 16px kathen'; // حجم الخط و نوعه
+                        ctx.fontSize = '40px'; // عرض الخط
+                        ctx.fillStyle = "#000000"; // لون الخط
+                        ctx.textAlign = "center"; // محاذا ة النص
+                        ctx.fillText(`${getvalueof.username}`, 153, 173) // احداثيات اسمك
+ 
+                        //ur name
+                        ctx.font = 'bold 16px kathen'; // حجم الخط و نوعه
+                        ctx.fontSize = '40px'; // عرض الخط
+                        ctx.fillStyle = "#f1f1f1"; // لون الخط
+                        ctx.textAlign = "center"; // محاذا ة النص
+                        ctx.fillText(`${getvalueof.username}`, 151, 171) // احداثيات اسمك
+ 
+                        //credit
+                        ctx.font = "bold 12px kathen" // نوع الخط وحجمه
+                        ctx.fontSize = '10px'; // عرض الخط
+                        ctx.fillStyle = "#f1f1f1" // لون الخط
+                        ctx.textAlign = "center"; // محاذا ة النص
+                        ctx.fillText(`$${profile[getvalueof.id].credits}`, 81, 159) // احداثيات المصاري
+ 
+                        //poits
+                        ctx.font = "bold 12px kathen" // ن
+                        ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
+                        ctx.fillStyle = "#f1f1f1" // لون الخط
+                        ctx.textAlign = "center"; // محاذا ة النص
+                        ctx.fillText(`${profile[getvalueof.id].points}`, 221, 159) // احداثيات النقاط
+ 
+                        //Level
+                        ctx.font = "bold 27px kathen" // نوع الخط و حجمه
+                        ctx.fontSize = '10px'; // عرض الخط
+                        ctx.fillStyle = "#f1f1f1" // لون الخط
+                        ctx.textAlign = "center"; // محاذا ة النص
+                        ctx.fillText(`${profile[getvalueof.id].level}`, 221, 118) // احداثيات اللفل
+ 
+                         //info
+                        ctx.font = "bold 12px kathen" // ن
+                        ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
+                        ctx.fillStyle = "#000000" // لون الخط
+                        ctx.textAlign = "center"; // محاذا ة النص
+                        ctx.fillText(`${profile[getvalueof.id].tite}`, 150, 199) // احداثيات النقاط
+ 
+                        //info
+                        ctx.font = "bold 12px kathen" // ن
+                        ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
+                        ctx.fillStyle = "#f1f1f1" // لون الخط
+                        ctx.textAlign = "center"; // محاذا ة النص
+                        ctx.fillText(`${profile[getvalueof.id].tite}`, 150, 197) // احداثيات النقاط
+ 
+                        // REP
+                        ctx.font = "bold 26px  kathen";
+                        ctx.fontSize = "50px";
+                        ctx.fillStyle = "#f1f1f1";
+                        ctx.textAlign = "center";
+                        ctx.fillText(`+${profile[getvalueof.id].rep}`, 80,117)
+ 
+                        let Avatar = Canvas.Image;
+                        let ava = new Avatar;
+ 
+ava.src = buf;
+                        ctx.beginPath();
+                        ctx.arc(75, 100, 780, 0, Math.PI*2, true);
+                        ctx.closePath();
+                        ctx.clip();
+                        ctx.drawImage(ava, 116, 82, 72, 72);
+ 
+message.channel.startTyping()
+message.channel.sendFile(canvas.toBuffer())
+message.channel.stopTyping()
+                            
+                            
+                          
+                            
+                             })
+                            
+                             })
+ }
+ });
 	      
 	      
 
@@ -2123,30 +2195,6 @@ function play(guild, song) {
     serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
 }	      
 
-client.on('ready',async () => {
-setInterval(function(){
-var currentTime = new Date(),
-hours = currentTime.getHours() + 3 ,
-ReBeeL = currentTime.getMinutes(),
-ReBeeeL = currentTime.getSeconds(),
-Codes = currentTime.getFullYear(),
-CodeS = currentTime.getMonth() + 1,
-CoDeS = currentTime.getDate()
-if (ReBeeL < 10) {
-ReBeeL = "0" + ReBeeL;
-}
-var suffix = "AM";
-if (hours >= 12) {
-suffix = "PM";
-hours = hours - 12;
-}
-if (hours == 0) {
-hours = 12;
-}
-client.channels.find('id', 'ايدي الروم').setName(`Time - ${hours} : ${ReBeeL} : ${ReBeeeL} ${suffix} .`) 
-client.channels.find('id', 'ايدي الروم').setName(`Date : ${Codes} - ${CodeS} - ${CoDeS} .`)
-client.channels.find('id', 'ايدي الروم').setName(`Voice : ${message.guild.members.filter(m => m.voiceChannel).size} .`)
-}, 1000);
-});
+
 
 client.login(process.env.BOT_TOKEN);
