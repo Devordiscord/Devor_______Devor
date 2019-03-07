@@ -1979,35 +1979,35 @@ client.on('message', message => {
         ctx.fontSize = '10px'; // عرض الخط
         ctx.fillStyle = '#FFFFFF' // لون الخط
         ctx.textAlign = "left"; // محاذا ة النص
-        ctx.fillText(`$ ${res.credits}`, 156, 163) // احداثيات المصاري
+        ctx.fillText(`54564456`, 156, 163) // احداثيات المصاري
 
         //poits
         ctx.font = "bold 13px profile" // ن
         ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
         ctx.fillStyle = "#FFFFFF" // لون الخط
         ctx.textAlign = "left"; // محاذا ة النص
-        ctx.fillText(`${res.xp}`, 173, 182) // احداثيات النقاط
+        ctx.fillText(`250`, 173, 182) // احداثيات النقاط
 
         //Level
         ctx.font = "bold 27px profile" // نوع الخط و حجمه
         ctx.fontSize = '50px'; // عرض الخط
         ctx.fillStyle = "#FFFFFF" // لون الخط
         ctx.textAlign = "left"; // محاذا ة النص
-        ctx.fillText(`${res.level}`, 30, 200) // احداثيات اللفل
+        ctx.fillText(`14`, 30, 200) // احداثيات اللفل
 
         //info
         ctx.font = "blod 13px profile" // ن
         ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
         ctx.fillStyle = "#FFFFFF" // لون الخط
         ctx.textAlign = "left"; // محاذا ة النص
-        ctx.fillText(`${res.info}`, 118, 40) // احداثيات النقاط
+        ctx.fillText(`0`, 118, 40) // احداثيات النقاط
 
         // REP
         ctx.font = "bold 27px profile";
         ctx.fontSize = "100px";
         ctx.fillStyle = "#FFFFFF";
         ctx.textAlign = "left";
-        ctx.fillText(`+${res.rep}`, 18,270)
+        ctx.fillText(`0`, 18,270)
                             
                             
                           
