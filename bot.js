@@ -1972,17 +1972,6 @@ client.on('message', message => {
         ctx.textAlign = "left"; // محاذا ة النص
         ctx.fillText(`${getvalueof.username}`, 100, 125) // احداثيات اسمك
 
-         //bord
-         let leaderboard = await SQLite.all(`SELECT * FROM profileSystem ORDER BY xp DESC, credits DESC`);
-        ctx.font = "regular 12px profile" // نوع الخط وحجمه
-        ctx.fontSize = '50px'; // عرض الخط
-        ctx.fillStyle = "#FFFFFF" // لون الخط
-        ctx.textAlign = "left"; // محاذا ة
-        for(var i = 0;i<leaderboard.length;i++) {
-          if(leaderboard[i].id == getvalueof.id) {
-            ctx.fillText(`#${i+1}`, 173, 200)
-          }
-        }
 
 
         //credit
