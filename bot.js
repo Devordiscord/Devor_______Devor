@@ -1930,7 +1930,7 @@ client.on('message', message => {
      })
 
 
-let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
+ let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
 Jimp.read(url, (err, ava) => {
     if (err) return console.log(err);
     ava.getBuffer(Jimp.MIME_PNG, async (err, buf) => {
