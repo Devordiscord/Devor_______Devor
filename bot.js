@@ -1972,7 +1972,13 @@ client.on('message', message => {
         ctx.textAlign = "left"; // محاذا ة النص
         ctx.fillText(`${getvalueof.username}`, 100, 125) // احداثيات اسمك
 
-
+         //bord
+       
+        ctx.font = "regular 12px profile" // نوع الخط وحجمه
+        ctx.fontSize = '50px'; // عرض الخط
+        ctx.fillStyle = "#FFFFFF" // لون الخط
+        ctx.textAlign = "left"; // محاذا ة
+         ctx.fillText(`0`, 173, 200)
 
         //credit
         ctx.font = "bold 10px profile" // نوع الخط وحجمه
