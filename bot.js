@@ -1825,6 +1825,8 @@ client.on('message', message => {
                  let ground = new Image;
                  ground.src = Background;
                  ctx.drawImage(ground, 0, 0, 802, 404);
+		     
+
     
      })
                                 let user = message.mentions.users.first();
@@ -1956,6 +1958,7 @@ client.on('message', message => {
                  ctx.drawImage(ground, 0, 0, 802, 404);
     
      })
+
                                 let user = message.mentions.users.first();
           var men = message.mentions.users.first();
              var heg;
@@ -1977,7 +1980,7 @@ client.on('message', message => {
                getvalueof = ment;
              } else {
                getvalueof = message.author;
-             }
+             }//ظ…ط§ ط®طµظƒ ,_,
                                            let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
                                              jimp.read(url, (err, ava) => {
                                                  if (err) return console.log(err);
