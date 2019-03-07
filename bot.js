@@ -1917,7 +1917,6 @@ client.on('message', message => {
   let ground = new Image;
   ground.src = Background;
   ctx.drawImage(ground, 0, 0, 297, 305);
-});
   if (err) return console.log(err);
   let BG = Canvas.Image;
   let ground = new Image;
