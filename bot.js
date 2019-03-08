@@ -90,7 +90,9 @@ client.on('message',async message => {
       err(message);
     }
   }
-});
+}
+})
+ });
  
 function err(message) {
   return message.channel.send(new RichEmbed()
