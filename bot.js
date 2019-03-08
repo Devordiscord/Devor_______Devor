@@ -49,7 +49,7 @@ client.on('message',async message => {
     if(!args[0] && !mention) {
       let o = 1;
       let entries = Object.values(gpoints[message.guild.id]);
-      let zg = client.guilds.get("525365808352985088").emojis.find(r => r.name === "Right");
+      let zg = client.guilds.(r => r.name === "Right");
       let top = require('array-sort')(entries, 'points', { reverse: true });
       if(top.length <= 0) return message.channel.send(`** لا يوجد أي عضو بالسيرفر لديه نقاط**`);
       let i = new RichEmbed();
@@ -60,7 +60,7 @@ client.on('message',async message => {
       message.channel.send(i);
     } else if(mention) {
       if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`**\`Manage Server\` يجب ان يتوفر لديك صلاحية**`);
-      let zg4 = client.guilds.get("525365808352985088").emojis.find(r => r.name === "tez");
+      let zg4 = client.guilds.(r => r.name === "tez");
       if(!args[1]) return err(message);
       if(!args[1].startsWith('+') && !args[1].startsWith('-')) return err(message);
       if(!message.guild.members.get( mention.id )) return err(message);
