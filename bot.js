@@ -51,7 +51,7 @@ client.on('message',async message => {
       let entries = Object.values(gpoints[message.guild.id]);
       let zg = client.guilds.get("525365808352985088").emojis.find(r => r.name === "Right");
       let top = require('array-sort')(entries, 'points', { reverse: true });
-      if(top.length <= 0) return message.channel.send(`**${client.guilds.get("525365808352985088").emojis.find(r => r.name === "NOO")} | لا يوجد أي عضو بالسيرفر لديه نقاط**`);
+      if(top.length <= 0) return message.channel.send(`** لا يوجد أي عضو بالسيرفر لديه نقاط**`);
       let i = new RichEmbed();
       i.setAuthor(message.author.username, message.author.avatarURL);
       i.setColor("#36393e");
@@ -59,7 +59,7 @@ client.on('message',async message => {
  
       message.channel.send(i);
     } else if(mention) {
-      if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`**${client.guilds.get("525365808352985088").emojis.find(r => r.name === "NOO")} | \`Manage Server\` يجب ان يتوفر لديك صلاحية**`);
+      if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`**\`Manage Server\` يجب ان يتوفر لديك صلاحية**`);
       let zg4 = client.guilds.get("525365808352985088").emojis.find(r => r.name === "tez");
       if(!args[1]) return err(message);
       if(!args[1].startsWith('+') && !args[1].startsWith('-')) return err(message);
@@ -81,11 +81,11 @@ client.on('message',async message => {
         message.channel.send(`**${zg4} | تم ازالة \`${m[1]}\` من النقاط الى ${mention}**`);
       }
     } else if(args[0] && args[0] === 'reset') {
-      if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`**${client.guilds.get("525365808352985088").emojis.find(r => r.name === "NOO")} | \`Manage Server\` يجب ان يتوفر لديك صلاحية**`);
+      if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`** \`Manage Server\` يجب ان يتوفر لديك صلاحية**`);
  
       gpoints[message.guild.id] = undefined;
       gpoints[message.guild.id] = {};
-      message.channel.send(`**${client.guilds.get("525365808352985088").emojis.find(r => r.name === "tez")} | تم تصفير جميع النقاط**`);
+      message.channel.send(`** تم تصفير جميع النقاط**`);
     } else {
       err(message);
     }
