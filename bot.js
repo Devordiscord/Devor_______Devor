@@ -36,8 +36,6 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-  let t = bot.guilds.get("522904523455594496").emojis.find(r => r.name === "true");
-  let f = bot.guilds.get("522904523455594496").emojis.find(r => r.name === "false");
   if (message.channel.type == "dm") return console.log(message.author.username + ` => type this (${message.content}) in Dm`);
   if (message.author.bot) return;
 
