@@ -36,11 +36,11 @@ client.on("ready", () => {
          details: `Programmer . ⌬`,
          url: 'https://youtu.be/COoYr5eW6-A',
          state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
-        application_id: '553179576902221824',
+        application_id: '525434548939653151',
          assets: {
-            small_image: ``,
+            small_image: `480169573530861578`,
             small_text: ' Take This ! ' ,
-            large_image: ``,
+            large_image: `483055655800930315`,
             large_text: `iLove you` }
     
       }
