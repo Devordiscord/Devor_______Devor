@@ -34,7 +34,7 @@ client.on("ready", () => {
          type: 0,
          name: 'إعلمْ أنْك إنسآن فآشِلْ',
          details: `I'm : Lorans - Developer and Programmer`,
-         url: 'http://twitch.tv/Streammingg',
+         url: 'http://youtube/Streammingg',
          state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
         application_id: '281376075802476544',
          assets: {
