@@ -29,7 +29,7 @@ client.on('ready', () => {
 
 client.on("ready", () => {
     client.user.setPresence({
-      status: 'dnd',
+      status: 'IdIe',
       game: { 
          type: 0,
          name: 'إعلمْ أنْك إنسآن فآشِلْ',
