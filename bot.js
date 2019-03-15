@@ -38,10 +38,8 @@ client.on("ready", () => {
          state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
         application_id: '477187715658547201',
          assets: {
-            small_image: `95955895889589458`,
-            small_text: ' Take This ! ' ,
             large_image: `480169573530861578`,
-            large_text: `iLove you` }
+            large_text: `Take This !` }
     
       }
         });
