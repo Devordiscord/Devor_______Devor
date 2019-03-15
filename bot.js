@@ -27,23 +27,7 @@ client.on('ready', () => {
   console.log('')
 });
 
-client.on("ready", () => {
-    client.user.setPresence({
-      status: 'IdIe',
-      game: { 
-         type: 0,
-         name: '̨̨  أعلمْ أنْك إنسآن فآشِل',
-         details: `Programmer . ⌬`,
-         url: 'https://youtu.be/COoYr5eW6-A',
-         state: `ۛ ּإنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِل`,
-        application_id: '553179576902221824',
-         assets: {
-            large_image: `401775087440756737`,
-            large_text: `Take This !` }
-    
-      }
-        });
-    });
+
 	      
 
 client.login(process.env.BOT_TOKEN);
