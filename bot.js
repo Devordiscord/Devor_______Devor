@@ -34,13 +34,13 @@ client.on("ready", () => {
          type: 0,
          name: 'إعلمْ أنْك إنسآن فآشِلْ',
          details: `I'm : Lorans - Developer and Programmer`,
-         url: 'http://youtube/Streammingg',
+         url: 'https://youtu.be/COoYr5eW6-A',
          state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
         application_id: '553179576902221824',
          assets: {
-            small_image: ``,
+            small_image: `555905567936479233`,
             small_text: ' Take This ! ' ,
-            large_image: `fortnite`,
+            large_image: `555905567936479233`,
             large_text: `iLove you` }
     
       }
