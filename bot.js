@@ -36,11 +36,11 @@ client.on("ready", () => {
          details: `I'm : Lorans - Developer and Programmer`,
          url: 'http://youtube/Streammingg',
          state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
-        application_id: '281376075802476544',
+        application_id: '553179576902221824',
          assets: {
             small_image: ``,
             small_text: ' Take This ! ' ,
-            large_image: `555905567936479233`,
+            large_image: `fortnite`,
             large_text: `iLove you` }
     
       }
