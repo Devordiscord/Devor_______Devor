@@ -33,14 +33,14 @@ client.on("ready", () => {
       game: { 
          type: 0,
          name: 'إعلمْ أنْك إنسآن فآشِلْ',
-         details: `I'm : Lorans - Developer and Programmer`,
+         details: `Programmer . ⌬`,
          url: 'https://youtu.be/COoYr5eW6-A',
          state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
         application_id: '553179576902221824',
          assets: {
-            small_image: `555905567936479233`,
+            small_image: ``,
             small_text: ' Take This ! ' ,
-            large_image: `555905567936479233`,
+            large_image: ``,
             large_text: `iLove you` }
     
       }
