@@ -36,7 +36,7 @@ client.on("ready", () => {
          details: `Programmer . ⌬`,
          url: 'https://youtu.be/COoYr5eW6-A',
          state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
-        application_id: '525434548939653151',
+        application_id: '477187715658547201',
          assets: {
             small_image: `480169573530861578`,
             small_text: ' Take This ! ' ,
